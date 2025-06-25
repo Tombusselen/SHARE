@@ -6,7 +6,7 @@
 /*   By: tbussele <tbussele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 11:36:53 by tbussele          #+#    #+#             */
-/*   Updated: 2025/06/25 10:01:11 by tbussele         ###   ########.fr       */
+/*   Updated: 2025/06/25 13:05:01 by tbussele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 size_t	ft_strlen(const char *str)
 {
 	unsigned int	i;
-	
+
 	if (str == NULL)
-		return(0);
+		return (0);
 	i = 0;
 	while (str[i] != '\0')
 		i++;
@@ -30,7 +30,7 @@ char	*ft_strdup(const char *s)
 	char	*cpy;
 
 	if (s == NULL)
-		return(NULL);
+		return (NULL);
 	i = 0;
 	cpy = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (cpy == NULL)
@@ -46,23 +46,21 @@ char	*ft_strdup(const char *s)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*str;
-	unsigned int	i;
-	int				j;
-	unsigned int	size;
+	char	*str;
+	size_t	i;
+	size_t	j;
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	i = 0;
 	j = 0;
-	str = malloc(size * sizeof(char));
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	while (i < ft_strlen(s1))
+	while (s1[i] != '\0')
 		str[j++] = s1[i++];
 	i = 0;
-	while (i < ft_strlen(s2))
+	while (s2[i] != '\0')
 		str[j++] = s2[i++];
 	str[j] = '\0';
 	return (str);
