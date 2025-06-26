@@ -6,7 +6,7 @@
 /*   By: tbussele <tbussele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 11:10:14 by tbussele          #+#    #+#             */
-/*   Updated: 2025/06/26 11:25:52 by tbussele         ###   ########.fr       */
+/*   Updated: 2025/06/26 11:33:15 by tbussele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ static char	*get_hold(char *stock, char *tmp, char *hold, int fd)
 			free(hold);
 			hold = tmp;
 		}
-		if (hold == NULL)
-			return (NULL);
 	}
 	return (hold);
 }
