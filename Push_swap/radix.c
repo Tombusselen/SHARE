@@ -6,7 +6,7 @@
 /*   By: tbussele <tbussele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:50:57 by tbussele          #+#    #+#             */
-/*   Updated: 2025/07/24 12:13:29 by tbussele         ###   ########.fr       */
+/*   Updated: 2025/07/24 15:44:37 by tbussele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,14 @@ void	radix_sort(t_node **stack_a, t_node **stack_b)
 			push_a(stack_b, stack_a);
 		i++;
 	}
+}
+
+void	sorting_tree(t_node **stack_a, t_node **stack_b)
+{
+	if (nbr_node(stack_a) < 4)
+		sort_three_a(stack_a);
+	if (nbr_node(stack_a) > 3 && nbr_node(stack_a) < 11)
+		sort_ten(stack_a, stack_b);
+	if (nbr_node(stack_a) >= 11)
+		radix_sort(stack_a, stack_b);
 }

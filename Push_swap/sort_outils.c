@@ -6,7 +6,7 @@
 /*   By: tbussele <tbussele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:55:07 by tbussele          #+#    #+#             */
-/*   Updated: 2025/07/24 11:46:45 by tbussele         ###   ########.fr       */
+/*   Updated: 2025/07/24 15:32:11 by tbussele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	index_max(t_node **head)
 int	nbr_bits(int nbr)
 {
 	int	bits;
-	
+
 	bits = 0;
 	while (nbr > 0)
 	{

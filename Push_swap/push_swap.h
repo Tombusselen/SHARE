@@ -6,7 +6,7 @@
 /*   By: tbussele <tbussele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 13:30:08 by tbussele          #+#    #+#             */
-/*   Updated: 2025/07/24 11:51:35 by tbussele         ###   ########.fr       */
+/*   Updated: 2025/07/24 15:23:05 by tbussele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	push_b(t_node **head_b, t_node **head_a);
 // index
 void	sort_index(t_node **head, int stack_size);
 // small tri
-void	sort_three(t_node **head);
+void	sort_three_a(t_node **head);
+void	sort_three_b(t_node **head);
 void	sort_ten(t_node **stack_a, t_node **stack_b);
 void	sort_a(t_node **stack_a, t_node **stack_b, int size);
 void	sort_b(t_node **stack_a, t_node **stack_b, int i_max);
