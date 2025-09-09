@@ -6,7 +6,7 @@
 /*   By: tbussele <tbussele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 10:40:49 by tbussele          #+#    #+#             */
-/*   Updated: 2025/09/08 16:16:08 by tbussele         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:19:50 by tbussele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@ void	ft_rectangular(t_game *game)
 
 	i = 0;
 	len = ft_strlen(game->map[0]);
-	ft_printf("len = %d \n", len);
-	ft_printf("height_m = %d \n", game->height_m); 
 	while (i < game->height_m)
 	{
 		if (len != ft_strlen(game->map[i]))
 		{
 			ft_printf("ERROR : Non rectangular map \n");
-			ft_printf("len[i] = %d et i = %d \n", ft_strlen(game->map[i]), i); 
+			ft_printf("len[i] = %d et i = %d \n", ft_strlen(game->map[i]), i);
 			exit (0);
 		}
 		i++;
@@ -91,4 +89,5 @@ void	check_map(t_game *game)
 	ft_surrounded(game);
 	ft_correct_fill(game);
 	ft_epc_count(game);
+	ft_exit_pos(game);
 }

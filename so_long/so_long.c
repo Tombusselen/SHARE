@@ -6,29 +6,11 @@
 /*   By: tbussele <tbussele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:55:09 by tbussele          #+#    #+#             */
-/*   Updated: 2025/09/08 15:57:30 by tbussele         ###   ########.fr       */
+/*   Updated: 2025/09/09 11:13:01 by tbussele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	clean_exit(t_game *game)
-{
-	free_arr(game->map, game->height_m);
-	mlx_destroy_image(game->mlx, game->wall.img);
-	mlx_destroy_image(game->mlx, game->floor.img);
-	mlx_destroy_image(game->mlx, game->player.img);
-	mlx_destroy_image(game->mlx, game->exit.img);
-	mlx_destroy_image(game->mlx, game->collectible.img);
-	if (game->win != NULL && game->mlx != NULL)
-		mlx_destroy_window(game->mlx, game->win);
-	if (game->mlx)
-	{
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-	}
-	exit(0);
-}
 
 int	close_cross(t_game *game)
 {

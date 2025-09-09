@@ -6,7 +6,7 @@
 /*   By: tbussele <tbussele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 14:48:51 by tbussele          #+#    #+#             */
-/*   Updated: 2025/09/08 15:59:13 by tbussele         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:45:12 by tbussele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	**map_cpy(t_game *game)
 	int		i;
 
 	i = 0;
-	tmp_map = malloc(sizeof(char *) * (game->height_m));
+	tmp_map = malloc(sizeof(char *) * (game->height_m + 1));
 	if (tmp_map == NULL)
 		return (0);
 	while (i < game->height_m)
@@ -39,7 +39,7 @@ char	**map_cpy(t_game *game)
 		tmp_map[i] = ft_strdup(game->map[i]);
 		if (tmp_map[i] == NULL)
 		{
-			free_arr(tmp_map, i);
+			free_arr(tmp_map);
 			return (0);
 		}
 		i++;
@@ -65,13 +65,13 @@ int	ft_check_path(t_game *game)
 			if ((game->map[i][j] == 'C' || game->map[i][j] == 'E') &&
 				tmp_map[i][j] != 'V')
 			{
-				free_arr(tmp_map, i);
+				free_arr(tmp_map);
 				return (0);
 			}
 			j++;
 		}
 		i++;
 	}
-	free_arr(tmp_map, i);
+	free_arr(tmp_map);
 	return (1);
 }

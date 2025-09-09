@@ -6,7 +6,7 @@
 /*   By: tbussele <tbussele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 14:38:38 by tbussele          #+#    #+#             */
-/*   Updated: 2025/09/08 15:52:20 by tbussele         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:36:50 by tbussele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_game
 	int			height_m;
 	int			move_count;
 	int			collec_nbr;
+	int			exit_x;
+	int			exit_y;
 	t_img		floor;
 	t_img		wall;
 	t_img		player;
@@ -65,7 +67,6 @@ typedef struct s_game
 
 //maps
 char	**extract_map(int height, char *map_txt);
-void	free_arr(char **arr, int height);
 void	init_map(t_game *game, char *map_txt);
 int		width_map(char *map_txt);
 int		height_map(char *map_txt);
@@ -81,6 +82,7 @@ void	check_map(t_game *game);
 //check map helper
 void	ft_epc_count(t_game *game);
 void	ft_epc_check(t_game *game, int e_count, int p_count);
+void	ft_exit_pos(t_game *game);
 //check path
 void	ft_reach(t_game *game, char **map, int x, int y);
 char	**map_cpy(t_game *game);
@@ -91,7 +93,8 @@ void	load_images(t_game *game);
 void	player_pos(t_game *game);
 void	player_move(t_game *game, int dx, int dy);
 int		key_action(int keycode, t_game *game);
-//so_long
+//exit & free
+void	free_arr(char **arr);
 void	clean_exit(t_game *game);
 
 #endif

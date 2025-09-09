@@ -6,7 +6,7 @@
 /*   By: tbussele <tbussele@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 13:47:13 by tbussele          #+#    #+#             */
-/*   Updated: 2025/09/08 13:37:18 by tbussele         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:18:28 by tbussele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ int	key_action(int keycode, t_game *game)
 	return (0);
 }
 
-void	move_update(t_game *game, char next, int new_x, int new_y)
+int	move_update(t_game *game, char next, int new_x, int new_y)
 {
 	if (next == '1')
 	{
 		ft_printf("You cannot go there !\n");
-		return ;
+		return (0);
 	}
 	if (next == 'C')
 	{
@@ -68,15 +68,17 @@ void	move_update(t_game *game, char next, int new_x, int new_y)
 	{
 		if (game->player_data.collected == game->collec_nbr)
 		{
-			ft_printf("🏆🏆 YOU WIN !!! 🏆🏆\n");
+			game->map[game->player_data.y][game->player_data.x] = '0';
+			game->map[new_y][new_x] = 'P';
+			create_map(game);
+			ft_printf("🏆🏆 YOU WIN !!! 🏆🏆\nFINAL move count : %d \n",
+				++game->move_count);
 			clean_exit(game);
 		}
 		else
-		{
-			ft_printf("You forgot a PRECIOUS\n");
-			return ;
-		}
+			return (ft_printf("You forgot a PRECIOUS\n"));
 	}
+	return (0);
 }
 
 void	player_move(t_game *game, int dx, int dy)
@@ -89,11 +91,12 @@ void	player_move(t_game *game, int dx, int dy)
 	new_y = game->player_data.y + dy;
 	next = game->map[new_y][new_x];
 	move_update(game, next, new_x, new_y);
-	if (next == '1' || next == 'E')
+	if (next == '1')
 		return ;
 	game->map[game->player_data.y][game->player_data.x] = '0';
 	game->player_data.x = new_x;
 	game->player_data.y = new_y;
+	game->map[game->exit_y][game->exit_x] = 'E';
 	game->map[game->player_data.y][game->player_data.x] = 'P';
 	game->move_count++;
 	ft_printf("move count : %d \n", game->move_count);

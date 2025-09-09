@@ -8,7 +8,7 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 MLX_DIR = mlx
 MLX = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
-SRC = init_map.c img_manager.c gen_map.c check_map.c check_map_helper.c player.c check_path.c so_long.c\
+SRC = init_map.c img_manager.c gen_map.c check_map.c check_map_helper.c player.c check_path.c exit_free.c so_long.c\
 
 OBJ = $(SRC:.c=.o)
 
